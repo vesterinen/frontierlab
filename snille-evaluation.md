@@ -137,6 +137,25 @@ Why this framing wins:
 
 ---
 
+## 5.1a Pricing the Gym (SKU 5.1)
+
+**List a frontier-lab training license at ~$2M/yr; hold a $1M floor; never sell exclusivity cheap.**
+
+Value anchors: a lab replicating a Clausewitz-depth environment needs a 5–10 person team for 6–12 months (~$3–10M loaded) and still lacks the content and human difficulty calibration, so $1–3M/yr sits comfortably under build-cost; environment budgets at frontier labs run to $1B+/yr, so $2M is noise to the buyer and material to Snille. The cheap substitutes (open-source games, the $50 consumer copy) cap pricing but miss what is actually sold: headless parallel infrastructure, save/branch API, human baselines, support, and the **legal right to train commercially on Paradox content** — clean licensing is part of the product.
+
+| Tier | Who | Price |
+|---|---|---|
+| Public benchmark | everyone | Free — the marketing engine |
+| Held-out eval suite | labs needing uncontaminated tests | ~$100–250k/yr |
+| Training license (core) | frontier labs, headless parallel rollouts | $1.5–3M/yr, list $2M |
+| Scale-up / custom | scenario packs, instrumentation, priority support | $3–5M+/yr |
+| Safety institutes | AISI-type evaluators | $250–500k/yr |
+| Academia | research groups | free/nominal — ecosystem seeding |
+
+Structure: first two deals at ~$750k–1M as design partners, explicitly traded for public citation rights with contracted step-ups at renewal; flat annual licenses with instance caps rather than per-rollout metering; non-exclusive by design (5 labs × ~$1.5M ≈ $7.5M ARR covers seed burn) — exclusivity is a 10x conversation and probably still "no," since it kills the benchmark's legitimacy. Below ~$500k for a frontier lab the company has priced itself as a dataset vendor. Treat eval/train separation and versioning as a product feature from day one: contamination-proofing is what keeps the benchmark citable.
+
+---
+
 ## 5.3 Addendum: the real-world event "oracle" — build it in parallel, but as a private ledger
 
 Should a real-world event oracle for the environment be a parallel first step? **Yes — scoped as internal grounding-and-calibration infrastructure (~1–1.5 FTE), not as an oracle product.**
