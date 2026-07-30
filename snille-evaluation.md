@@ -137,6 +137,32 @@ Why this framing wins:
 
 ---
 
+## 5.3 Addendum: the real-world event "oracle" — build it in parallel, but as a private ledger
+
+Should a real-world event oracle for the environment be a parallel first step? **Yes — scoped as internal grounding-and-calibration infrastructure (~1–1.5 FTE), not as an oracle product.**
+
+**Build three things from day one:**
+
+1. **Live state ingestion** — GDELT/ACLED/Comtrade/GLEIF/price feeds into engine state. Needed anyway to initialize and refresh the modern-day scenario; this is the data half of SKU 5.2 started early, not a new workstream.
+2. **A resolvable question bank + resolution machinery** — piggyback on Metaculus/Good Judgment/Polymarket questions and resolutions (writing unambiguous geopolitical questions is a solved craft there); author questions natively only for variables the engine outputs directly (trade volumes, prices, escalation events).
+3. **A pre-registered forecast ledger** — engine rollouts, an LLM-only baseline, and market prices each log predictions on the same questions, timestamped, immutable, private.
+
+**Why parallel rather than sequential:**
+
+- **The ledger's value is time-locked.** Hindcasts are always suspect; live pre-registered forecasts are the only credibility currency that can't be faked, and every month the loop isn't running is track record that can never be recovered. Validation is the long pole of the whole thesis — start its clock at incorporation, not at Stage 3.
+- **It disciplines the scenario build.** Forcing the modern-day scenario into resolvable variables is the QA harness that separates the professional build from Millennium Dawn.
+- **Prediction-market prices are a free continuous verifier proxy** — the closest thing geopolitics has to a cheap verifier, usable as a calibration signal years before any government grants trust.
+
+**Three constraints that keep it from becoming the credibility mistake §5 warns against:**
+
+- **Private until it wins.** Publish nothing until the engine beats the LLM baseline over a meaningful sample; a public track record that starts mediocre is fatal with net-assessment buyers. Once it wins, it converts instantly into the Stage 3 evidence, DARPA/ONA study material, and the finance-market door-opener.
+- **Capped scope.** On a ~10-person team this stays a pipeline plus a dashboard. If it exceeds ~15% of engineering, it is cannibalizing the two SKUs that pay for everything.
+- **Never "oracle" externally.** The word invites the fidelity comparison the fork cannot yet win and repositions the company as a prediction shop prematurely. Externally it is grounding and calibration infrastructure.
+
+Sequencing note: it does nothing for SKU 5.1 (labs want depth and legibility, not real-world grounding) and must not delay the Gym. Its beneficiaries are SKU 5.2, Stage 3, and eventually finance — the highest-paying market once calibration is demonstrable.
+
+---
+
 ## 6. What has to be true — the tests that settle it
 
 The deck's Honest Ledger is good; here is the sharpened version with falsifiable near-term tests:
