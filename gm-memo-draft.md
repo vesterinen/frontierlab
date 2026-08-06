@@ -2,9 +2,7 @@
 
 **Ville Vesterinen — draft memo to the founders**
 
-*NB. I also absolutely used Claude to generate parts of this document if the editing is familiar.*
-
-After talking to all of you, on my part, I would be happy to spearhead the company and commit to building the early foundation at minimum. I have the best visibility and the experience in going from 0 to 1: building the early team, setting the product vision and building the v1, raising the capital and setting the foundation for success. Naturally, if things pan out I'm absolutely interested in building a world-leading frontier lab.
+After talking to all of you, on my part, I would be happy to spearhead the company and commit to building a world-leading frontier lab.
 
 ## First 90 days
 
@@ -58,7 +56,7 @@ I would raise twice before any Series A, with the second round priced on shipped
 
 **Round 1 — first close: $4–5M on a SAFE, cap $18–25M, at incorporation (target Q4 2026).**
 
-Why this size and not $2–3M (which I believe we could raise easily): the two slowest items on the critical path — the Paradox license process and a world-class CTO search — consume calendar without consuming much cash. Twelve months of runway with no slack means fundraising again mid-build, from weakness. Eighteen months of runway means we raise the seed on our terms. And why not more: before the CTO is aboard, hiring is the bottleneck, not capital. Money raised on story alone is the most expensive money we will ever take.
+Why this size and not $1–3M (which I believe we could raise easily): the two slowest items on the critical path — the Paradox license process and a world-class CTO search — consume calendar without consuming much cash. Twelve months of runway with no slack means fundraising again mid-build, from weakness. Eighteen months of runway means we raise the seed on our terms. And why not more: before the CTO is aboard, hiring is the bottleneck, not capital. Money raised on story alone is the most expensive money we will ever take. If things move faster, great.
 
 This round must deliver five things before we price the seed:
 
@@ -102,10 +100,6 @@ Combined with Gym revenue ($3–6M/yr by 2028) and non-dilutive money, this reac
 
 ## What I need from you
 
-1. **The cap table restructure before any investor conversation.** Passive holders (non-full-time founders plus Paradox) at a maximum of 25% combined, active leadership at founder grade, everyone — including part-timers — on reverse vesting with milestone-linked schedules. This is condition zero: it cannot be fixed after first money is in.
+1. **The cap table restructure before any investor conversation.** Passive holders (non-full-time founders plus Paradox) at a maximum of 25% combined, active leadership at founder grade, everyone — including part-timers — on reverse vesting with milestone-linked schedules.
 2. **License posture.** Perpetuity/irrevocability and escrowed source as negotiation objectives with Paradox — not nice-to-haves. A five-year license on the company's core asset is not financeable at the level we intend.
-3. **A decision date.** The existing 15 August go/no-go works. I'm asking for a yes or no on this structure by then.
-
-## How I think about the seat
-
-If for some reason it's not a great fit — or we conclude, for example, that we need a US-based CEO for the market we're entering — I'm happy to step down. The company comes first, and these things are more fun when we can talk about every scenario openly among the founders. This goes a long way to avoiding unnecessary theatre.
+3. **A decision date.** The existing 15 August go/no-go works.
