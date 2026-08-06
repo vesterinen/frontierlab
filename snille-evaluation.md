@@ -195,6 +195,48 @@ The deck's Honest Ledger is good; here is the sharpened version with falsifiable
 
 ---
 
+## 6a. Illustrative financials and capital plan
+
+Scenario illustrations, not forecasts: bear ≈ the modal niche outcome (~50% odds), base ≈ plan-of-record if both SKUs land (~coin flip), bull ≈ the environment-thesis-wins branch (15–20%). Clock starts Q4 2026: Y3 = 2029, Y5 = 2031, Y10 = 2036.
+
+**Revenue, base case ($M):**
+
+| Stream | Y3 | Y5 | Y10 |
+|---|---|---|---|
+| Environment licenses (labs + institutes) | 8 | 18 | 20 |
+| Wargaming platform (gov/PME/FFRDC/NATO) | 4 | 16 | 55 |
+| Government NRE / studies | 2 | 4 | 5 |
+| Enterprise & finance | — | 3 | 22 |
+| **Total** | **~14** | **~41** | **~102** |
+
+Bear/base/bull totals — Y3: 5/14/25 · Y5: 12/40/85 · Y10: 30/100/350+. Environment revenue is deliberately flattened by Y10 (lab environment spend is plausibly a 2025–28 bubble); the wargaming platform becomes the majority. The bull case is the one where the environment instead becomes the canonical strategic-agents substrate.
+
+**Costs, base case ($M):** Y3: ~16 (40 FTE, $4M compute) → EBITDA –2 · Y5: ~43 (95 FTE, $8M compute) → –3 · Y10: ~82 (220 FTE) → +20. Gross margins ~85%; government NRE keeps burn small by design. The modern-day scenario build (~$5M/18mo, test #4) sits in the Y2–Y3 people line.
+
+**Valuations ($M):**
+
+| | Y3 | Y5 | Y10 |
+|---|---|---|---|
+| Bear | ~60 | ~100 | ~150 (BAE/Saab/Scale acquisition — the BISim outcome) |
+| Base | ~250 (18×) | ~600 (15×) | ~900–1,200 (10×, profitable) |
+| Bull | ~500 | ~1,700 (20×) | ~4,000–6,000 |
+
+Multiples at 10–20× ARR — below peak defense-AI (20–40×), compressing with maturity. Palantir scale is not a plannable case; it is the bull case compounding a further decade.
+
+**Capital plan:**
+
+| Round | When | Amount | Post | Gate (§6 tests) |
+|---|---|---|---|---|
+| Pre-seed/seed | Q4 2026 | $10–12M | ~$45–55M | IP license signed, tech lead hired |
+| Series A | H2 2028 | $25–30M | ~$180–250M | Tests 1–3: two ≥$500k lab deals, benchmark cited, one wargaming renewal |
+| Series B | 2030 | $60–80M | ~$550–700M | ~$25M+ ARR, first enterprise logos, US subsidiary |
+| **Total dilutive to Y5** | | **~$100–120M** | | |
+| Non-dilutive NRE/SBIR/OTA | 2027–31 | ~$15–25M | | Runs alongside; keeps A and B small |
+
+Founder dilution ≈ 20%/16%/12% plus pool top-ups → founders/early team retain ~50–55% through B. Minimum viable version: Gym revenue at §5.1a pricing plus NRE can carry the company to the A on the seed alone. After Y5 the base case is self-funding; the bull case takes one growth round (~$150–250M, 2032 — In-Q-Tel/EQT/NIF territory) raised only if tests 5–6 pass. Every round is gated on the falsifiable tests, not the calendar: if test 1 fails, don't raise the A — shrink to the wargaming niche; the bear column still returns the seed.
+
+---
+
 ## 7. Bottom line
 
 - **Realistic?** Yes, as an environment-and-wargaming company with a research arm; no, as pitched — the fork-to-oracle framing overstates engine fidelity, claims a data moat that must actually be built going forward, and hides the modern-world content mountain. The deck's self-awareness (Honest Ledger, long R&D phase, revenue-bridging design) is above average and most flaws are fixable by reordering, not by new inventions.
