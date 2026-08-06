@@ -213,6 +213,8 @@ Bear/base/bull totals — Y3: 5/14/25 · Y5: 12/40/85 · Y10: 30/100/350+. Envir
 
 **Costs, base case ($M):** Y3: ~16 (40 FTE, $4M compute) → EBITDA –2 · Y5: ~43 (95 FTE, $8M compute) → –3 · Y10: ~82 (220 FTE) → +20. Gross margins ~85%; government NRE keeps burn small by design. The modern-day scenario build (~$5M/18mo, test #4) sits in the Y2–Y3 people line.
 
+**Why the compute line is small (an investor will ask):** Snille pretrains nothing general — foundation-model priors are bought (API/open-weight fine-tunes, $10k–100k scale), and the only house-trained model is the narrow Clausewitz surrogate, whose right comps (GenCast, MuZero/Dreamer-class) cost single-digit millions per training program. Rollout data generation is headless CPU simulation on spot fleets — hundreds of thousands, not millions. And the heavy training happens on customers' budgets by design: labs burn their own nine-figure compute training agents *inside* the Gym, paying a license — the arena doesn't pay for the gladiators' training. Two events would break this: the surrogate growing into a large multimodal grounded model ($20–30M/yr — fits Series B, and signals Layer 2 is working), or a decision to train the frontier Grand Strategy Model in-house — which turns Snille into a frontier lab with frontier-lab economics, and is exactly what the gated 2032 growth round prices.
+
 **Valuations ($M):**
 
 | | Y3 | Y5 | Y10 |
