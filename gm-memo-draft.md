@@ -68,7 +68,7 @@ This round must deliver five things before we price the seed:
 4. One or two frontier-lab design partners signed ($750k–1M each, traded for citation rights)
 5. Modern-day scenario scoped and costed; the private forecast ledger running quietly
 
-Investor profile: the retired defense/intelligence angels already identified (their value is warm US and Nordic introductions, not the check), one institutional fund capable of leading the seed later so the follow-on is pre-wired, and Nordic angels who open Saab/FOI/FMV doors. In parallel — month one, not later — we file the non-dilutive applications (Vinnova, EIC, NATO DIANA): their 6–9 month decision cycles land exactly when seed-stage burn begins.
+In parallel — month one, not later — we file the non-dilutive applications (Vinnova, EIC, NATO DIANA or equivalents): these cycles run months, so early filings land exactly when seed-stage burn begins.
 
 **Round 2 — priced seed: $10–12M at ~$45–55M post, roughly 9–12 months after first close.**
 
