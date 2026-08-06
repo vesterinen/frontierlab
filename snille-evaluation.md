@@ -262,6 +262,8 @@ Multiples at 10–20× ARR — below peak defense-AI (20–40×), compressing wi
 | **Total dilutive to Y5** | | **~$100–120M** | | |
 | Non-dilutive NRE/SBIR/OTA | 2027–31 | ~$15–25M | | Runs alongside; keeps A and B small |
 
+**Revised founding cap table** (fixing the deck's biggest structural flaw: 52% to two part-time founders plus Paradox, 26% to the two full-time builders — no seed investor prices that without forcing a restructure). Passive block capped at ≤25%: full-time CEO **25–32%** (founding-CEO grade at founder-level cash, ~$140–160k salary / ~$200–220k loaded in Sweden, stepping up post-A); CTO **14–17%**; Rodolfo and Fred **6–8% each**, reverse-vested with milestone-linked (not time-based) schedules and a pool step-up only on conversion to full-time; Paradox **8–10% non-voting** — IP-for-equity comps run 5–15% and the top is for perpetual assigned IP, so either 8–10% plus a capped royalty, or equity earning up to ~12% when the five-year license converts to perpetual and irrevocable (which test #5 requires anyway); pool **20–25%**; advisors 1–2%.
+
 Founder dilution ≈ 20%/16%/12% plus pool top-ups → founders/early team retain ~50–55% through B. Minimum viable version: Gym revenue at §5.1a pricing plus NRE can carry the company to the A on the seed alone. After Y5 the base case is self-funding; the bull case takes one growth round (~$150–250M, 2032 — In-Q-Tel/EQT/NIF territory) raised only if tests 5–6 pass. Every round is gated on the falsifiable tests, not the calendar: if test 1 fails, don't raise the A — shrink to the wargaming niche; the bear column still returns the seed.
 
 ---
