@@ -156,6 +156,32 @@ Structure: first two deals at ~$750k–1M as design partners, explicitly traded 
 
 ---
 
+## 5.2a Pricing the wargaming platform (Product 2) and decision support (Product 3)
+
+**Product 2 anchor:** a serious analytic wargame today costs $100k–several million per event in expert labor and prep. Land-and-expand against that: per-exercise service at **$150–300k** (priced ~half the manual equivalent so the pilot is easy and "weeks to days" is verified on the customer's own budget line); annual institutional license **$500k–1.5M/yr** (unlimited exercises, seats, scenario library); enterprise tier **$1–3M/yr** for COCOM cells and NATO M&S with custom builds and classified-enclave deployment at a **+50–100% premium** (accreditation is real cost and real moat); scenario packs **$100–250k** as add-ons — the DLC model, correctly applied.
+
+**Product 3** (sold only after §6 validation gates): government/ministry platform **$2–5M/yr**; finance **$1–3M/yr per desk** scaling to **$5–10M enterprise** (anchors: Eurasia-Group-type retainers for static quarterly views, ultimately Aladdin-style bps-of-assets economics); bespoke studies **$250k–1M**. No performance-linked pricing (unauditable, invites gaming); tier by users × scenario domains × refresh rate.
+
+**Meta-rule:** price rises ~an order of magnitude per trust tier — environment ($1–3M) → exercises ($0.5–3M) → decisions ($2–10M) → risk engine at scale (tens of millions). Never price tier N on tier N+1's promise.
+
+---
+
+## 5.4 The exhaust economy: how Product 4+ is a by-product of Products 1–3
+
+Product 4 is the **Grand Strategy Model** — the learned world model that replaces Clausewitz as the proprietary engine. The deck schedules it as a Stage 4 rewrite project; the better plan is that it is never a project: it condenses out of the exhaust of the revenue products, each contributing an otherwise-unbuyable ingredient, each paid for by its own customers.
+
+- **Product 1 exhaust — coverage.** Lab agents training in the Gym generate millions of state→action→next-state trajectories, including the exploit-hunting corners only RL agents reach — simultaneously the surrogate's supervised training set and a continuous fuzzing service for the sim's fidelity bugs. Labs pay ~$2M/yr each to generate this. Result: a fast copy of the game (already valuable — it makes Gym hosting faster and higher-margin).
+- **Product 2 exhaust — expert correction.** Wargames create the professional strategic-decision data the deck claimed already existed, and, more valuable, **referee overrides**: each adjudicator correction is an expert-labeled point where the game diverges from institutional judgment. Make the override workflow a first-class product feature. This data cannot be bought; it exists only as exercise by-product. Result: the surrogate is fine-tuned away from the game, toward professional judgment.
+- **Product 3 + ledger exhaust — reality's gradient.** Pre-registered forecasts scored against outcomes convert "matches expert judgment" into "matches the world"; decision-support customers wire in live feeds on their own data budgets, expanding the state representation.
+
+Progression of one artifact: fast copy of the game → corrected by expert judgment → calibrated against reality — at which point it is no longer a copy of Clausewitz but a learned geopolitical world model with a **documented provenance trail**, which is itself the future VV&A/accreditation case: the audit trail of what corrected the model and when is the compliance artifact, built as a side effect of revenue operations.
+
+**Products 5+** are the same model repackaged at higher trust tiers, each unlocked by the ledger's track record: the finance risk engine (Aladdin analog), sovereign digital-twin deployments, and the environment-as-standard position where evaluating anyone's strategic agent means running it in this world model.
+
+One line: every customer at every tier is unknowingly a data-labeler for the tier above — labs label coverage, colonels label fidelity, reality labels truth — and Product 4 is the ledger where all three deposits accumulate. A $10M-seed company ends up owning a frontier asset not by buying the data but by selling the collection process.
+
+---
+
 ## 5.3 Addendum: the real-world event "oracle" — build it in parallel, but as a private ledger
 
 Should a real-world event oracle for the environment be a parallel first step? **Yes — scoped as internal grounding-and-calibration infrastructure (~1–1.5 FTE), not as an oracle product.**
