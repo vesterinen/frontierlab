@@ -255,7 +255,8 @@ Multiples at 10–20× ARR — below peak defense-AI (20–40×), compressing wi
 
 | Round | When | Amount | Post | Gate (§6 tests) |
 |---|---|---|---|---|
-| Pre-seed/seed | Q4 2026 | $10–12M | ~$45–55M | IP license signed, tech lead hired |
+| First close (SAFE) | Q4 2026 | $4–5M | cap $18–25M | Buys 18 months to: license executed, CTO+GM hired, Gym v1 + benchmark public, 1–2 lab LOIs, scenario scoped |
+| Seed (priced) | ~Q3 2027 | $10–12M | ~$45–55M | The gates above hit; prices on shipped benchmark + lab traction |
 | Series A | H2 2028 | $25–30M | ~$180–250M | Tests 1–3: two ≥$500k lab deals, benchmark cited, one wargaming renewal |
 | Series B | 2030 | $60–80M | ~$550–700M | ~$25M+ ARR, first enterprise logos, US subsidiary |
 | **Total dilutive to Y5** | | **~$100–120M** | | |
