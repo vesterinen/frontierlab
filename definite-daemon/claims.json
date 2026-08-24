@@ -10,16 +10,56 @@
       "source": "Public video remarks, 2026 (event/date to verify before publishing)",
       "filed": "2026-08",
       "branches": [
-        {"id": "A", "name": "On schedule", "desc": ">=100M cumulative by 2031", "p": 0.02},
-        {"id": "B", "name": "Right but late", "desc": "Humanoids reach >=1M/yr run rate by 2031; 100M lands 2040s", "p": 0.45},
-        {"id": "C", "name": "Niche plateau", "desc": "Robots stay specialized/industrial; no general-purpose breakout this decade", "p": 0.35},
-        {"id": "D", "name": "Wrong form factor", "desc": "Humanoids lose to purpose-built automation", "p": 0.18}
+        {
+          "id": "A",
+          "name": "On schedule",
+          "desc": ">=100M cumulative by 2031",
+          "p": 0.02
+        },
+        {
+          "id": "B",
+          "name": "Right but late",
+          "desc": "Humanoids reach >=1M/yr run rate by 2031; 100M lands 2040s",
+          "p": 0.45
+        },
+        {
+          "id": "C",
+          "name": "Niche plateau",
+          "desc": "Robots stay specialized/industrial; no general-purpose breakout this decade",
+          "p": 0.35
+        },
+        {
+          "id": "D",
+          "name": "Wrong form factor",
+          "desc": "Humanoids lose to purpose-built automation",
+          "p": 0.18
+        }
       ],
       "signposts": [
-        {"id": "robots-runrate", "watch": "Any humanoid maker (Optimus, Figure, 1X, Unitree) crossing sustained ~10k units/year production run rate", "discriminates": "B vs C", "check_by": "2027-12"},
-        {"id": "robots-cost", "watch": "Disclosed humanoid unit cost under ~$30k at volume", "discriminates": "B", "check_by": "2027-12"},
-        {"id": "robots-deploy", "watch": "One non-automotive customer deploying 1,000+ humanoids in real operations", "discriminates": "B", "check_by": "2027-12"},
-        {"id": "robots-china", "watch": "Chinese maker pricing below $10k at scale", "discriminates": "accelerates B and D", "check_by": "2027-12"}
+        {
+          "id": "robots-runrate",
+          "watch": "Any humanoid maker (Optimus, Figure, 1X, Unitree) crossing sustained ~10k units/year production run rate",
+          "discriminates": "B vs C",
+          "check_by": "2027-12"
+        },
+        {
+          "id": "robots-cost",
+          "watch": "Disclosed humanoid unit cost under ~$30k at volume",
+          "discriminates": "B",
+          "check_by": "2027-12"
+        },
+        {
+          "id": "robots-deploy",
+          "watch": "One non-automotive customer deploying 1,000+ humanoids in real operations",
+          "discriminates": "B",
+          "check_by": "2027-12"
+        },
+        {
+          "id": "robots-china",
+          "watch": "Chinese maker pricing below $10k at scale",
+          "discriminates": "accelerates B and D",
+          "check_by": "2027-12"
+        }
       ],
       "kill": "Under ~1M cumulative units industry-wide by end-2027 kills branch A arithmetically.",
       "status": "open"
@@ -32,14 +72,44 @@
       "source": "Podcast recording, August 2026",
       "filed": "2026-08",
       "branches": [
-        {"id": "A", "name": "Great Reset on time", "desc": "Atoms-shift visibly underway by early 2028", "p": 0.25},
-        {"id": "B", "name": "Reset late", "desc": "Direction right, visible after 2028", "p": 0.35},
-        {"id": "C", "name": "Software persists", "desc": "AI-native software keeps compounding as the value engine; no cycle end", "p": 0.40}
+        {
+          "id": "A",
+          "name": "Great Reset on time",
+          "desc": "Atoms-shift visibly underway by early 2028",
+          "p": 0.25
+        },
+        {
+          "id": "B",
+          "name": "Reset late",
+          "desc": "Direction right, visible after 2028",
+          "p": 0.35
+        },
+        {
+          "id": "C",
+          "name": "Software persists",
+          "desc": "AI-native software keeps compounding as the value engine; no cycle end",
+          "p": 0.4
+        }
       ],
       "signposts": [
-        {"id": "reset-funding", "watch": "Robotics + edge-AI share of early-stage VC funding hitting record levels", "discriminates": "A/B vs C", "check_by": "2028-03"},
-        {"id": "reset-margins", "watch": "Software incumbent gross margins visibly compressing attributed to AI commoditization", "discriminates": "A vs C", "check_by": "2028-03"},
-        {"id": "reset-lovable", "watch": "Trajectory of AI-native software leaders (e.g. Lovable): continued hypergrowth supports C; stall supports A/B", "discriminates": "C vs A/B", "check_by": "2028-03"}
+        {
+          "id": "reset-funding",
+          "watch": "Robotics + edge-AI share of early-stage VC funding hitting record levels",
+          "discriminates": "A/B vs C",
+          "check_by": "2028-03"
+        },
+        {
+          "id": "reset-margins",
+          "watch": "Software incumbent gross margins visibly compressing attributed to AI commoditization",
+          "discriminates": "A vs C",
+          "check_by": "2028-03"
+        },
+        {
+          "id": "reset-lovable",
+          "watch": "Trajectory of AI-native software leaders (e.g. Lovable): continued hypergrowth supports C; stall supports A/B",
+          "discriminates": "C vs A/B",
+          "check_by": "2028-03"
+        }
       ],
       "kill": "AI-native software still producing the era's biggest value creation through 2028 while atoms stay a promise.",
       "status": "open"
@@ -52,39 +122,53 @@
       "source": "Podcast recording + fund thesis, 2026",
       "filed": "2026-08",
       "branches": [
-        {"id": "A", "name": "European hardware giant forms", "desc": "A European semis/photonics company on trillion-dollar trajectory within 15 years", "p": 0.15},
-        {"id": "B", "name": "Ecosystem forms, giant elsewhere", "desc": "European semis ecosystem strengthens but biggest outcomes exit early or relocate", "p": 0.45},
-        {"id": "C", "name": "Gap persists", "desc": "Growth-stage wall holds; talent and IP keep leaking to US/Asia", "p": 0.40}
+        {
+          "id": "A",
+          "name": "European hardware giant forms",
+          "desc": "A European semis/photonics company on trillion-dollar trajectory within 15 years",
+          "p": 0.15
+        },
+        {
+          "id": "B",
+          "name": "Ecosystem forms, giant elsewhere",
+          "desc": "European semis ecosystem strengthens but biggest outcomes exit early or relocate",
+          "p": 0.45
+        },
+        {
+          "id": "C",
+          "name": "Gap persists",
+          "desc": "Growth-stage wall holds; talent and IP keep leaking to US/Asia",
+          "p": 0.4
+        }
       ],
       "signposts": [
-        {"id": "semis-growth-capital", "watch": "Specialized European growth capital (A/B rounds) for semiconductors emerging - new funds or repeated European-led B rounds", "discriminates": "A/B vs C", "check_by": "2028-08"},
-        {"id": "semis-pilot-lines", "watch": "Chips Act pilot lines operational and used by startups (Espoo, Tampere, IMEC, Fraunhofer, Grenoble)", "discriminates": "A/B", "check_by": "2028-08"},
-        {"id": "semis-ip-exits", "watch": "European hardware IP exits at substantial pre-revenue valuations continuing", "discriminates": "supports thesis economics", "check_by": "2028-08"},
-        {"id": "semis-sixmonth", "watch": "Cloudberry's promised sharper theses at six-month follow-up (Feb 2027)", "discriminates": "meta", "check_by": "2027-02"}
+        {
+          "id": "semis-growth-capital",
+          "watch": "Specialized European growth capital (A/B rounds) for semiconductors emerging - new funds or repeated European-led B rounds",
+          "discriminates": "A/B vs C",
+          "check_by": "2028-08"
+        },
+        {
+          "id": "semis-pilot-lines",
+          "watch": "Chips Act pilot lines operational and used by startups (Espoo, Tampere, IMEC, Fraunhofer, Grenoble)",
+          "discriminates": "A/B",
+          "check_by": "2028-08"
+        },
+        {
+          "id": "semis-ip-exits",
+          "watch": "European hardware IP exits at substantial pre-revenue valuations continuing",
+          "discriminates": "supports thesis economics",
+          "check_by": "2028-08"
+        },
+        {
+          "id": "semis-sixmonth",
+          "watch": "Cloudberry's promised sharper theses at six-month follow-up (Feb 2027)",
+          "discriminates": "meta",
+          "check_by": "2027-02"
+        }
       ],
       "kill": "Through 2028, Europe's best semiconductor companies still relocate or sell early to US/Asia for lack of domestic capital.",
       "status": "open"
-    },
-    {
-      "id": "ville-2024-founders",
-      "claimant": "Ville Vesterinen",
-      "stake": "said",
-      "claim": "Trillion-dollar companies are founder-led technology companies; Europe will not produce one until it attracts and amplifies founders.",
-      "source": "Essay, 22.03.2024",
-      "filed": "2024-03",
-      "branches": [
-        {"id": "A", "name": "Thesis holds", "desc": "New trillion-dollar entrants remain founder-led tech; Europe absent without structural change", "p": 0.55},
-        {"id": "B", "name": "Professionalized giants", "desc": "Non-founder-led companies enter the club at scale", "p": 0.25},
-        {"id": "C", "name": "Europe surprises", "desc": "European entrant without structural change", "p": 0.20}
-      ],
-      "signposts": [
-        {"id": "club-entrants", "watch": "Each new trillion-dollar club entrant: founder-led or not", "discriminates": "A vs B", "check_by": "2027-03"},
-        {"id": "tech-gdp", "watch": "Technology share of global GDP trend", "discriminates": "A", "check_by": "2027-03"},
-        {"id": "europe-structure", "watch": "EU.Inc / structural founder reforms passing", "discriminates": "C precondition", "check_by": "2027-03"}
-      ],
-      "kill": "A decade of new giants that are professionally managed without founder vision.",
-      "status": "open",
-      "review": "2027-03"
     },
     {
       "id": "capex-2026-bullwhip",
@@ -94,14 +178,44 @@
       "source": "Public comment, August 2026",
       "filed": "2026-08",
       "branches": [
-        {"id": "A", "name": "Bullwhip bust", "desc": "Supply overshoots; capex crash within 3-4 years; assets later productive (dark fiber pattern)", "p": 0.40},
-        {"id": "B", "name": "Soft landing", "desc": "Demand grows into supply; margins compress but no crash", "p": 0.35},
-        {"id": "C", "name": "Persistent shortage", "desc": "Demand keeps outrunning supply through the decade", "p": 0.25}
+        {
+          "id": "A",
+          "name": "Bullwhip bust",
+          "desc": "Supply overshoots; capex crash within 3-4 years; assets later productive (dark fiber pattern)",
+          "p": 0.4
+        },
+        {
+          "id": "B",
+          "name": "Soft landing",
+          "desc": "Demand grows into supply; margins compress but no crash",
+          "p": 0.35
+        },
+        {
+          "id": "C",
+          "name": "Persistent shortage",
+          "desc": "Demand keeps outrunning supply through the decade",
+          "p": 0.25
+        }
       ],
       "signposts": [
-        {"id": "capex-vacancy", "watch": "Datacenter vacancy rates / delayed or cancelled DC projects appearing", "discriminates": "A", "check_by": "2028-12"},
-        {"id": "capex-hbm", "watch": "HBM/advanced packaging moving from allocation (shortage) to inventory (glut)", "discriminates": "A vs C", "check_by": "2028-12"},
-        {"id": "capex-power", "watch": "Power purchase prices for DC campuses: falling spot deals signal oversupply", "discriminates": "A", "check_by": "2028-12"}
+        {
+          "id": "capex-vacancy",
+          "watch": "Datacenter vacancy rates / delayed or cancelled DC projects appearing",
+          "discriminates": "A",
+          "check_by": "2028-12"
+        },
+        {
+          "id": "capex-hbm",
+          "watch": "HBM/advanced packaging moving from allocation (shortage) to inventory (glut)",
+          "discriminates": "A vs C",
+          "check_by": "2028-12"
+        },
+        {
+          "id": "capex-power",
+          "watch": "Power purchase prices for DC campuses: falling spot deals signal oversupply",
+          "discriminates": "A",
+          "check_by": "2028-12"
+        }
       ],
       "kill": "GPU/DC utilization stays saturated with waitlists through 2029.",
       "status": "open"
