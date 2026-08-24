@@ -4,88 +4,81 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Daemon — Definite</title>
-<meta name="description" content="Paste a claim, a mission, or a company URL. The daemon computes the decision tree — and watches it.">
+<meta name="description" content="Paste a claim, a mission, or a company URL. The daemon draws the map — and watches it.">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 <style>
-.product{border:1px solid var(--acc);background:var(--panel);padding:36px;margin-top:48px;max-width:860px}
-.product .lab{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:var(--acc);text-transform:uppercase;display:block;margin-bottom:16px}
-.product h2{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:clamp(22px,3.4vw,34px);line-height:1.15;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:16px}
-.product p{font-size:16px;color:var(--mut);max-width:44em;margin-bottom:10px}
-.product p b{color:var(--ink);font-weight:500}
+.product{background:var(--card);border:1.5px solid var(--ink);border-radius:18px;padding:36px;margin-top:44px;max-width:820px;box-shadow:8px 8px 0 var(--acc)}
+.product h2{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:clamp(26px,3.6vw,38px);letter-spacing:-.015em;margin-bottom:14px}
+.product p{font-size:16px;color:var(--mut);max-width:42em;margin-bottom:10px}
+.product p b{color:var(--ink);font-weight:600}
 .btns{display:flex;gap:14px;margin-top:22px;flex-wrap:wrap}
-.btn{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:15px 26px;text-align:center}
-.btn.primary{background:var(--acc);color:var(--bg)}
-.btn.ghost{border:1px solid var(--acc);color:var(--acc)}
-.btn.ghost:hover{background:var(--acc);color:var(--bg)}
-.psec{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase;padding:52px 0 18px;border-top:1px solid var(--line);margin-top:56px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.step{border:1px solid var(--line);padding:26px}
-.step .n{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--acc);display:block;margin-bottom:12px}
-.step h3{font-weight:600;font-size:17px;margin-bottom:8px}
+.btn{display:inline-block;border-radius:10px;font-weight:600;font-size:15px;padding:14px 24px;text-align:center}
+.btn.primary{background:var(--ink);color:#fff}
+.btn.primary:hover{background:#000}
+.btn.ghost{border:1.5px solid var(--ink);color:var(--ink)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}
+.step .n{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accdeep);display:block;margin-bottom:12px;letter-spacing:.1em}
+.step h3{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:19px;margin-bottom:8px}
 .step p{font-size:14px;color:var(--mut)}
-.loop{border:1px solid var(--line);background:var(--panel);padding:26px 30px;position:relative;margin-top:16px}
-.loop::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--acc)}
-.loop .lab{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--acc);text-transform:uppercase;display:block;margin-bottom:10px}
-.loop p{font-size:14.5px;color:var(--mut);max-width:52em}
-.loop p b{color:var(--ink);font-weight:500}
-.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.tier{border:1px solid var(--line);padding:26px}
-.tier.hot{border-color:var(--acc)}
-.tier .tname{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
-.tier.hot .tname{color:var(--acc)}
-.tier .price{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;margin-bottom:12px}
-.tier .price span{font-size:12px;color:var(--mut);font-weight:400}
-.tier p{font-size:13.5px;color:var(--mut)}
-@media (max-width:720px){.steps,.tiers{grid-template-columns:1fr}}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
+.tier{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}
+.tier.hot{border:1.5px solid var(--ink)}
+.tier .tname{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;color:var(--accdeep)}
+.tier .price{font-family:Fraunces,Georgia,serif;font-size:26px;font-weight:600;margin-bottom:12px}
+.tier .price span{font-size:13px;color:var(--mut);font-weight:400;font-family:Archivo,system-ui,sans-serif}
+.tier p{font-size:14px;color:var(--mut)}
+.vh2{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:28px;letter-spacing:-.015em;border-top:1px solid var(--line);margin-top:56px;padding:52px 0 22px}
+@media (max-width:760px){.steps,.tiers{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <nav>
-    <a class="wordmark" href="/">DEFINITE<span class="dot">.</span></a>
-    <div class="links"><a href="/">The record</a><a href="/ledger">Ledger</a><a href="/digest-001">The weekly</a></div>
+    <a class="wordmark" href="/">Definite<span class="dot">.</span></a>
+    <div class="links"><a href="/">Home</a><a href="/ledger">Ledger</a><a href="/digest-001">The weekly</a></div>
   </nav>
 
-  <div class="hero" style="border-bottom:0;padding-bottom:0">
-    <p class="kick" style="color:var(--acc)">The Definite Daemon</p>
-    <h1>A daemon watches the future<span class="cursor"></span></h1>
-    <p class="sub">Every future that matters to you is a claim about what happens next. The daemon breaks claims into <b>branches, probabilities, signposts, and kill conditions</b> — then checks them against reality, every day.</p>
-  </div>
+  <article style="max-width:none;padding-bottom:0">
+    <p class="kick" style="color:var(--accdeep)">The Definite Daemon</p>
+    <h1 style="max-width:16em">A daemon watches the future.</h1>
+    <p style="font-size:17px;color:var(--mut);max-width:34em;margin-top:6px">Every future that matters to you is a claim about what happens next. The daemon draws each claim as a map — branches, odds, signposts, kill condition — then checks it against reality, every day.</p>
+  </article>
 
   <div class="product">
-    <span class="lab">The product · Private beta</span>
-    <h2>Paste a claim. Get the tree.</h2>
-    <p>Type any claim about the future — or your company&rsquo;s mission, or a company URL. The daemon computes the decision tree: <b>the ways it can play out, weighted; the real-world signposts that decide between them; and the condition that kills it.</b></p>
-    <p>One tree takes about 30 seconds. Watching it forever is the subscription.</p>
+    <span class="kick" style="color:var(--accdeep);display:block;margin-bottom:14px">The product · Private beta</span>
+    <h2>Paste a claim. Get the map.</h2>
+    <p>Any claim about the future — or your company&rsquo;s mission, or a company URL. The daemon computes <b>the ways it can play out, weighted; the real-world signposts that decide between them; and the condition that kills it.</b></p>
+    <p>One map takes about 30 seconds. Watching it forever is the subscription.</p>
     <div class="btns">
       <a class="btn primary" href="/app">Open the app →</a>
-      <a class="btn ghost" href="/musk-2026#tree">See a live tree: Musk, 2026</a>
+      <a class="btn ghost" href="/musk-2026#tree">See a live map: Musk, 2026</a>
     </div>
   </div>
 
-  <p class="psec">How it works</p>
+  <h2 class="vh2">How it works</h2>
   <div class="steps">
     <div class="step"><span class="n">01</span><h3>Claim in</h3><p>A frontier claim, your mission, a company URL — anything definite enough to be checked.</p></div>
-    <div class="step"><span class="n">02</span><h3>Tree out</h3><p>Branches with probabilities, reasoned from bottlenecks and base rates — not vibes. Signposts dated. Kill condition named.</p></div>
-    <div class="step"><span class="n">03</span><h3>The daemon watches</h3><p>Subscribed trees are checked against the news daily. When reality moves a branch, you get the ping — with what it means for your seat.</p></div>
+    <div class="step"><span class="n">02</span><h3>Map out</h3><p>Branches with odds, reasoned from bottlenecks and base rates — not vibes. Signposts dated. Kill condition named.</p></div>
+    <div class="step"><span class="n">03</span><h3>The daemon watches</h3><p>Subscribed maps are checked against the news daily. When reality moves a branch, you get the ping — with what it means for your seat.</p></div>
   </div>
-  <div class="loop">
+  <div class="foreword" style="margin-top:22px;margin-bottom:0">
     <span class="lab">04 · The loop</span>
-    <p><b>Reality grades the daemon, too.</b> Every probability is dated and kept; resolved claims become base rates that sharpen the next tree; the daemon&rsquo;s own record is public on the <a href="/ledger" class="yl">ledger</a>. We don&rsquo;t ask you to trust the machine — we show you its books.</p>
+    <p><b>Reality grades the daemon, too.</b> Every probability is dated and kept; resolved claims become base rates that sharpen the next map; the daemon&rsquo;s own record is public on the <a href="/ledger" class="yl">ledger</a>. We don&rsquo;t ask you to trust the machine — we show you its books.</p>
   </div>
 
-  <p class="psec">Three ways in</p>
+  <h2 class="vh2">Three ways in</h2>
   <div class="tiers">
     <div class="tier hot"><div class="tname">The weekly</div><div class="price">Free</div><p>What moved in the future this week — every fired signpost across the public record, with the so-what for builders, investors, and operators. For anyone.</p></div>
     <div class="tier"><div class="tname">Mission watch</div><div class="price">&euro;79 <span>/ month</span></div><p>The daemon on your own company: your plan decomposed into its real bottlenecks, base rates attached, and a standing watch that pings you when reality moves. For founders.</p></div>
-    <div class="tier"><div class="tname">The desk</div><div class="price">Annual <span>/ teams</span></div><p>Quarterly branch briefings, monitored tripwires, and diligence trees on demand — dependency maps, never success verdicts, private to you. For funds and strategy teams.</p></div>
+    <div class="tier"><div class="tname">The desk</div><div class="price">Annual <span>/ teams</span></div><p>Quarterly branch briefings, monitored tripwires, and diligence maps on demand — dependency maps, never success verdicts, private to you. For funds and strategy teams.</p></div>
   </div>
 
-  <footer style="margin-top:64px;border-top:1px solid var(--line)">
-    <span>DEFINITE — a project by Ville Vesterinen, co-founder of Slush</span>
-    <span><a href="/">THE RECORD</a> / <a href="/ledger">LEDGER</a></span>
+  <footer>
+    <span>Definite — a project by Ville Vesterinen, co-founder of Slush</span>
+    <span><a href="/">Home</a> · <a href="/ledger">Ledger</a></span>
   </footer>
 </div>
 </body>

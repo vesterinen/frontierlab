@@ -4,141 +4,157 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Definite</title>
-<meta name="description" content="Definite visions of the future, mapped — a record of where we're going.">
+<meta name="description" content="Every future is a claim. We draw the map of how it plays out — and a daemon watches it.">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 <style>
-.inputbox{border:1px solid var(--acc);background:var(--panel);padding:26px;max-width:760px;margin-top:34px}
-.inputbox label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;color:var(--acc);text-transform:uppercase;display:block;margin-bottom:10px}
-.inputbox textarea{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--ink);font-family:Archivo,system-ui,sans-serif;font-size:15.5px;padding:14px;min-height:74px;resize:vertical;outline:none;line-height:1.6}
-.inputbox textarea:focus{border-color:var(--acc)}
-.inputrow{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
-.inputrow input{flex:1;min-width:170px;background:var(--bg);border:1px solid var(--line);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:13px;padding:13px 14px;outline:none}
-.inputrow input:focus{border-color:var(--acc)}
-.inputrow button{background:var(--acc);color:var(--bg);border:0;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:0 26px;cursor:pointer}
-.inputrow button:disabled{opacity:.5;cursor:wait}
-.hint{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.05em;color:var(--mut);margin-top:12px;text-transform:uppercase}
-.hint a{color:var(--acc)}
-.status{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;margin:22px 0 0;color:var(--acc);text-transform:uppercase;display:none}
-.status .cursor{display:inline-block;width:.55em;height:1em;background:var(--acc);vertical-align:-.15em;margin-left:.2em;animation:blink 1.1s steps(1) infinite}
-.status.err{color:#E8492A}
-#result{display:none;margin-top:34px;max-width:920px}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:56px 0 64px}
+.hero h1{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:clamp(36px,4.6vw,56px);line-height:1.08;letter-spacing:-.02em}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--accdeep)}
+.hero .sub{margin-top:20px;font-size:17.5px;color:var(--mut);max-width:32em}
+.treecap{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--mut);text-transform:uppercase;margin-top:12px;text-align:right}
+@media (prefers-reduced-motion:no-preference){
+  .heromap .branchline{stroke-dasharray:600;stroke-dashoffset:600;animation:draw 1.6s ease forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+}
+.value{border-top:1px solid var(--line);padding:60px 0 8px}
+.value h2{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:30px;letter-spacing:-.015em;margin-bottom:8px}
+.value .lead{color:var(--mut);max-width:38em;font-size:16px;margin-bottom:32px}
+.vgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+.vcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:0 2px 20px rgba(28,26,21,.05)}
+.vcard .tag{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:var(--accdeep);text-transform:uppercase;display:block;margin-bottom:14px}
+.vcard h3{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:20px;margin-bottom:10px}
+.vcard p{font-size:14.5px;color:var(--mut);line-height:1.65}
+.dep{display:flex;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.dep:last-of-type{border-bottom:0}
+.dep .d{width:12px;height:2px;background:var(--acc);flex:none;margin-top:9px}
+.dep b{font-weight:600}
+.dep span.mono{font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}
+.alert{border:1.5px solid var(--ink);border-radius:14px;padding:22px 24px;margin-top:18px;background:#FFFBEE}
+.alert .atag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--red);text-transform:uppercase;display:block;margin-bottom:10px}
+.alert p{font-size:14.5px;line-height:1.65;color:var(--ink)}
+.samplenote{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase;margin-top:14px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;transition:transform .12s ease,box-shadow .12s ease;display:block}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(28,26,21,.08)}
+.card .who{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:20px;letter-spacing:-.01em}
+.card .date{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--mut);text-transform:uppercase;margin:4px 0 12px}
+.card p{font-size:14px;color:var(--mut);line-height:1.6}
+.badge{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;padding:5px 11px;border-radius:99px;margin-top:16px;border:1px solid var(--line);color:var(--mut)}
+.badge.v{background:var(--acc);border-color:var(--acc);color:var(--ink);font-weight:600}
+@media (max-width:900px){.hero{grid-template-columns:1fr;gap:36px}.vgrid{grid-template-columns:1fr}.cards{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <nav>
-    <a class="wordmark" href="/">DEFINITE<span class="dot">.</span></a>
-    <div class="links"><a href="/daemon">The daemon</a><a href="/ledger">Ledger</a><a href="/thesis">Why</a></div>
+    <a class="wordmark" href="/">Definite<span class="dot">.</span></a>
+    <div class="links"><a href="/daemon">The daemon</a><a href="/ledger">Ledger</a><a href="/digest-001">The weekly</a><a href="/thesis">Why</a></div>
   </nav>
-  <div class="hero" style="border-bottom:0;padding-bottom:52px">
-    <p class="kick">Definite — a record of where we&rsquo;re going / kept by Ville Vesterinen</p>
-    <h1>Definite visions of the future<span class="cursor"></span></h1>
-    <p class="sub" style="margin-top:22px">Every future that matters to you is a claim about what happens next. <b>Paste one — the daemon computes how it can play out, and what to watch for.</b></p>
-    <div class="inputbox">
-      <label>A claim about the future · your company&rsquo;s mission · a company URL</label>
-      <textarea id="input" placeholder="e.g. &quot;100 million humanoid robots by 2031&quot; — or your startup&rsquo;s mission — or https://yourcompany.com"></textarea>
-      <div class="inputrow">
-        <input id="code" type="password" placeholder="ACCESS CODE" autocomplete="off">
-        <button id="go" onclick="compute()">Compute the tree</button>
+
+  <div class="hero">
+    <div>
+      <h1>Every future is a claim.<br>We draw the <em>map</em> of how it plays out.</h1>
+      <p class="sub">Paste a claim about the future — or your company&rsquo;s mission. The daemon computes the branches, the odds, and the signposts that decide between them. Then it watches.</p>
+      <div class="inputcard" style="margin-top:30px">
+        <label>A claim about the future · your mission · a company URL</label>
+        <textarea id="input" placeholder='Try: "100 million humanoid robots by 2031" — or your startup&rsquo;s mission'></textarea>
+        <div class="inputfoot">
+          <input id="code" type="password" placeholder="ACCESS CODE" autocomplete="off">
+          <button id="go" onclick="compute()">Draw the map</button>
+        </div>
       </div>
-      <p class="hint">Private beta · Trees take ~30 seconds · No code? <a href="/musk-2026#tree">See a live tree</a></p>
+      <p class="hint">Private beta · ~30 seconds per map · No code? <a href="/musk-2026#tree">See a live map</a></p>
+      <p class="status" id="status"></p>
+      <div id="result"></div>
     </div>
-    <p class="status" id="status">The daemon is computing<span class="cursor"></span></p>
-    <div id="result"></div>
+    <div class="heromap">
+      <div class="mapcard">
+      <svg viewBox="0 0 480 340" aria-label="Decision map for the 100M robots claim">
+        <path class="branchline faint" d="M60,170 C160,170 180,54 292,54"/>
+        <path class="branchline win" d="M60,170 C160,170 180,132 292,132"/>
+        <path class="branchline" d="M60,170 C160,170 180,210 292,210"/>
+        <path class="branchline" d="M60,170 C160,170 180,288 292,288"/>
+        <circle cx="60" cy="170" r="7" fill="#1C1A15"/>
+        <circle cx="292" cy="54" r="4" fill="#C9C3B2"/>
+        <circle cx="292" cy="132" r="9" fill="#E8B62A" stroke="#1C1A15" stroke-width="1.5"/>
+        <circle cx="292" cy="210" r="6" fill="#1C1A15"/>
+        <circle cx="292" cy="288" r="5" fill="#1C1A15"/>
+        <text class="node-label" x="52" y="150">THE CLAIM</text>
+        <text class="node-label" x="304" y="50">ON SCHEDULE · 2%</text>
+        <text class="node-label strong" x="304" y="128">RIGHT BUT LATE · 50%</text>
+        <text class="node-label" x="304" y="145" style="font-size:9px">100M lands in the 2040s</text>
+        <text class="node-label" x="304" y="206">NICHE PLATEAU · 32%</text>
+        <text class="node-label" x="304" y="284">WRONG FORM FACTOR · 18%</text>
+      </svg>
+      </div>
+      <p class="treecap"><a href="/musk-2026#tree">Live map · Musk, 2026 · updated when reality moves →</a></p>
+    </div>
   </div>
 
-  <div class="sechead"><span>The record</span><span class="live">● updated 08/2026</span></div>
-  <div class="tablehead"><span>№</span><span>Entry</span><span>Filed</span><span>Status</span></div>
-  <a class="row" href="/sameer-singh-2026">
-    <span class="no">01</span>
-    <span><span class="name">Sameer Singh, 2026</span>
-    <span class="claim">Not another platform shift — the end of the entire computing cycle, and the start of one built on robotics, edge AI, and distributed manufacturing.</span></span>
-    <span class="filed">08/2026</span>
-    <span class="status"><i></i>OPEN</span>
-  </a>
-  <a class="row" href="/cloudberry-2026">
-    <span class="no">02</span>
-    <span><span class="name">Cloudberry, 2026</span>
-    <span class="claim">The next trillion-dollar European company will be a computing hardware company.</span></span>
-    <span class="filed">08/2026</span>
-    <span class="status"><i></i>OPEN</span>
-  </a>
-  <a class="row" href="/musk-2006">
-    <span class="no">03</span>
-    <span><span class="name">Musk, 2006</span>
-    <span class="claim">Four sentences from 2006: sports car, affordable car, even more affordable car, zero-emission power. Fourteen years later — executed in sequence.</span></span>
-    <span class="filed">08/2026</span>
-    <span class="status v"><i></i>VINDICATED</span>
-  </a>
+  <div class="value">
+    <h2>Point it at your own company</h2>
+    <p class="lead">Your mission is a claim about the future too. The daemon breaks it into the bottlenecks that decide whether your world arrives — then stands watch on every one of them.</p>
+    <div class="vgrid">
+      <div class="vcard">
+        <span class="tag">Sample mission watch · a battery-recycling startup</span>
+        <h3>&ldquo;We&rsquo;ll recycle 30% of Europe&rsquo;s EV batteries by 2032.&rdquo;</h3>
+        <div class="dep"><span class="d"></span><div><b>Feedstock timing</b> — enough EV batteries must reach end-of-life by 2029; today&rsquo;s fleet age says the wave arrives 2030–33. <span class="mono">Watching: fleet-age data, quarterly</span></div></div>
+        <div class="dep"><span class="d"></span><div><b>Regulation</b> — the EU battery-passport regime must be enforced, not just announced. <span class="mono">Watching: enforcement dates, member-state transposition</span></div></div>
+        <div class="dep"><span class="d"></span><div><b>Competing capacity</b> — smelters and Chinese recyclers are building too; your cost per tonne has to win. <span class="mono">Watching: announced capacity vs. your ramp</span></div></div>
+        <p class="samplenote">Illustrative sample — not a real client</p>
+      </div>
+      <div>
+        <div class="vcard">
+          <span class="tag">The part you actually pay for</span>
+          <h3>The ping when reality moves</h3>
+          <p>A one-shot analysis is a snapshot. The subscription is the standing watch: the daemon re-checks your bottlenecks against the news and tells you when one moves — for or against you.</p>
+        </div>
+        <div class="alert">
+          <span class="atag">⚠ Sample alert · Mission Watch</span>
+          <p><b>Your bottleneck #2 moved.</b> The EU confirmed battery-passport enforcement for Feb 2027 — six months earlier than consensus. Your compliance window shortened; your regulatory moat against non-compliant imports strengthened. Two rivals announced capacity delays this quarter. <b>Net: your 2032 branch gained ground.</b></p>
+        </div>
+        <p class="samplenote">Illustrative sample alert</p>
+      </div>
+    </div>
+  </div>
 
-  <div class="sechead"><span>Where we&rsquo;re going — filings from the feed</span></div>
-  <div class="tablehead"><span>№</span><span>Filing</span><span>Filed</span><span>Status</span></div>
-  <a class="row" href="/musk-2026">
-    <span class="no">F-01</span>
-    <span><span class="name">Musk, 2026</span>
-    <span class="claim">Digital intelligence exceeds the sum of human intelligence by ~2031. A hundred million humanoid robots in five years. An economic doubling period. Three claims, three very different tests — filed, with the take.</span></span>
-    <span class="filed">08/2026</span>
-    <span class="status"><i></i>OPEN</span>
-  </a>
-
-  <div class="sechead"><span>The weekly — what moved in the future</span></div>
-  <div class="tablehead"><span>№</span><span>Report</span><span>Ran</span><span>Moved</span></div>
-  <a class="row" href="/digest-001">
-    <span class="no">001</span>
-    <span><span class="name">Robots ramp · pilot lines open · both Reset rails hot</span>
-    <span class="claim">The daemon checked 14 signposts across 4 claims. Three moved — one Cloudberry signpost fired, one Great Reset signpost fired both ways, and the robot run-rate closed in on its threshold.</span></span>
-    <span class="filed">24.08.2026</span>
-    <span class="status v"><i></i>3 SIGNALS</span>
-  </a>
+  <div class="value">
+    <h2>The record</h2>
+    <p class="lead">Claims from the frontier, mapped and followed in public. When the world moves, the maps move — and every move is kept on the <a href="/ledger" class="yl">ledger</a>.</p>
+    <div class="cards">
+      <a class="card" href="/sameer-singh-2026">
+        <div class="who">Sameer Singh</div>
+        <div class="date">Filed 08/2026 · Speedinvest</div>
+        <p>&ldquo;Not another platform shift — the end of the entire computing cycle.&rdquo;</p>
+        <span class="badge">Open · clock to 2028</span>
+      </a>
+      <a class="card" href="/cloudberry-2026">
+        <div class="who">Cloudberry</div>
+        <div class="date">Filed 08/2026 · &euro;30M semis fund</div>
+        <p>&ldquo;The next trillion-dollar European company will be a computing hardware company.&rdquo;</p>
+        <span class="badge">Open · 1 signpost fired</span>
+      </a>
+      <a class="card" href="/musk-2006">
+        <div class="who">Musk, 2006</div>
+        <div class="date">The Secret Master Plan · scored 2006–20</div>
+        <p>&ldquo;Sports car → affordable car → even more affordable car → zero-emission power.&rdquo;</p>
+        <span class="badge v">Vindicated</span>
+      </a>
+    </div>
+    <p class="treenote" style="margin-top:22px">Also on file: <a href="/musk-2026" class="yl">Musk, 2026 — the 100M robots filing</a> · this week&rsquo;s report: <a href="/digest-001" class="yl">What moved № 001</a></p>
+  </div>
 
   <div class="method">
-    <span class="lab">Method</span>
-    <p><span class="mono-b">CLAIM</span> in one sentence, dated. <span class="mono-b">WORLD IMPLIED</span> — what has to be true if it&rsquo;s right. <span class="mono-b">SIGNPOSTS</span> we should see on the way. <span class="mono-b">KILL CONDITION</span> — what would tell us the road doesn&rsquo;t exist. Then time does its work.</p>
+    <span class="lab">How a map is drawn</span>
+    <p>The claim, restated so it can be checked. The <b>branches</b> — the worlds it can become, weighted from bottlenecks and base rates. The <b>signposts</b> — real events that reveal which branch we&rsquo;re on. The <b>kill condition</b>. Then time does its work, and the daemon keeps watch.</p>
   </div>
   <footer>
-    <span>DEFINITE — a project by Ville Vesterinen, co-founder of Slush</span>
-    <span><a href="/thesis">WHY THIS EXISTS</a></span>
+    <span>Definite — a project by Ville Vesterinen, co-founder of Slush</span>
+    <span><a href="/thesis">Why this exists</a></span>
   </footer>
 </div>
-<script>
-async function compute(){
-  var input=document.getElementById('input').value.trim();
-  var code=document.getElementById('code').value.trim();
-  var st=document.getElementById('status'), btn=document.getElementById('go'), out=document.getElementById('result');
-  out.style.display='none'; out.innerHTML='';
-  st.classList.remove('err'); st.innerHTML='The daemon is computing<span class="cursor"></span>'; st.style.display='block';
-  btn.disabled=true;
-  try{
-    var r=await fetch('/api/tree',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({input:input,code:code})});
-    var d=await r.json();
-    if(!r.ok){ throw new Error(d.error||('Error '+r.status)); }
-    var t=d.tree||{};
-    var h='';
-    h+='<div class="claimbox"><p>'+esc(t.claim||input)+'</p></div>';
-    h+='<h2 style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin:34px 0 6px;color:var(--acc)">The tree</h2>';
-    (t.branches||[]).forEach(function(b){
-      var p=Math.round((b.p||0)*100);
-      h+='<div class="branch'+(p<=5?' dim':'')+'"><span class="bl">'+esc(b.id||'')+' · '+esc(b.name||'')+'<small>'+esc(b.desc||'')+'</small></span><span class="bar"><i style="width:'+p+'%"></i></span><span class="bp">'+p+'%</span></div>';
-    });
-    if((t.signposts||[]).length){
-      h+='<h2 style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin:34px 0 10px;color:var(--acc)">Signposts — what to watch</h2><ul style="list-style:none;padding:0;max-width:56em">';
-      t.signposts.forEach(function(s){
-        h+='<li style="margin:0 0 12px;padding-left:24px;position:relative;font-size:15px;line-height:1.6"><span style="position:absolute;left:0;top:.62em;width:11px;height:1px;background:var(--acc)"></span>'+esc(s.watch||'')+' <span style="font-family:\'IBM Plex Mono\',monospace;font-size:10.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.05em">'+esc(s.discriminates||'')+(s.by?' · by '+esc(s.by):'')+'</span></li>';
-      });
-      h+='</ul>';
-    }
-    if(t.kill){ h+='<h2 style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin:34px 0 8px;color:#E8492A">Kill condition</h2><p style="font-size:15.5px;max-width:44em">'+esc(t.kill)+'</p>'; }
-    if(t.caveat){ h+='<p class="treenote" style="margin-top:22px"><b>Caveat:</b> '+esc(t.caveat)+'</p>'; }
-    h+='<p class="treenote" style="margin-top:26px"><b>Want this watched?</b> Mission Watch turns a one-shot tree into a standing watch — base rates attached, signposts monitored, a ping when reality moves. <a href="/daemon" class="yl">The daemon</a>.</p>';
-    out.innerHTML=h; out.style.display='block'; st.style.display='none';
-  }catch(e){
-    st.classList.add('err'); st.textContent=e.message||'Something failed — try again.';
-  }finally{ btn.disabled=false; }
-}
-function esc(s){return (s+'').replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
-document.getElementById('input').addEventListener('keydown',function(e){if((e.metaKey||e.ctrlKey)&&e.key==='Enter'){compute();}});
-</script>
+<script src="/map.js"></script>
 </body>
 </html>
