@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Daemon — Definite</title>
+<meta name="description" content="A daemon watches the future — follow any future you have a stake in.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{--bg:#0F0F0D;--panel:#151512;--ink:#EAE8DC;--mut:#8C8A7C;--line:#26251F;--acc:#F2C230}
+body{font-family:Archivo,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:inherit;cursor:pointer;text-decoration:none}
+.wrap{max-width:980px;margin:0 auto;padding:0 28px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid var(--line)}
+.wordmark{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;letter-spacing:.1em}
+.wordmark .dot{color:var(--acc)}
+nav .links{display:flex;gap:26px}
+nav .links a{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase}
+.hero{padding:78px 0 60px}
+.kick{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--acc);text-transform:uppercase;margin-bottom:28px}
+h1{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:clamp(28px,5.4vw,58px);line-height:1.1;letter-spacing:-.01em;text-transform:uppercase;max-width:15em}
+h1 .cursor{display:inline-block;width:.55em;height:1em;background:var(--acc);vertical-align:-.12em;margin-left:.12em;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){h1 .cursor{animation:none}}
+.sub{margin-top:30px;max-width:560px;font-size:17px;color:var(--mut)}
+.sub b{color:var(--ink);font-weight:500}
+.capture{display:flex;gap:0;margin-top:38px;max-width:520px;border:1px solid var(--acc)}
+.capture input{flex:1;background:transparent;border:0;color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:13px;padding:16px 18px;outline:none}
+.capture input::placeholder{color:var(--mut)}
+.capture button{background:var(--acc);color:var(--bg);border:0;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:0 26px;cursor:pointer}
+.smallnote{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.05em;color:var(--mut);margin-top:12px;text-transform:uppercase}
+.sechead{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase;padding:52px 0 18px;border-top:1px solid var(--line);margin-top:56px}
+.sechead b{color:var(--acc);font-weight:500}
+.sample{border:1px solid var(--line);background:var(--panel);padding:30px 32px;position:relative;max-width:760px}
+.sample::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--acc)}
+.sample .tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--acc);text-transform:uppercase;display:block;margin-bottom:14px}
+.sample h3{font-weight:600;font-size:21px;letter-spacing:-.01em;margin-bottom:12px}
+.sample p{font-size:15px;color:var(--mut);max-width:44em;margin-bottom:10px}
+.sample p b{color:var(--ink);font-weight:500}
+.lens{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.lens div{border:1px solid var(--line);padding:14px 16px}
+.lens .l{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:var(--acc);text-transform:uppercase;display:block;margin-bottom:8px}
+.lens p{font-size:13px;color:var(--ink);margin:0}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{border:1px solid var(--line);padding:26px}
+.step .n{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--acc);display:block;margin-bottom:12px}
+.step h3{font-weight:600;font-size:17px;margin-bottom:8px}
+.step p{font-size:14px;color:var(--mut)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.buyer{border:1px solid var(--line);background:var(--panel);padding:30px}
+.buyer .bfor{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--acc);text-transform:uppercase;display:block;margin-bottom:12px}
+.buyer .bt{font-weight:600;font-size:22px;letter-spacing:-.01em;margin-bottom:10px}
+.buyer p{font-size:14.5px;color:var(--mut);margin-bottom:10px}
+.buyer p b{color:var(--ink);font-weight:500}
+.buyer ul{list-style:none;padding:0;margin:14px 0 0}
+.buyer li{font-size:13.5px;color:var(--ink);margin:8px 0;padding-left:20px;position:relative}
+.buyer li::before{content:"";position:absolute;left:0;top:.6em;width:10px;height:1px;background:var(--acc)}
+.buyer .warn{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.05em;color:var(--mut);text-transform:uppercase;margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.stats{display:flex;border:1px solid var(--line);flex-wrap:wrap}
+.stat{flex:1;min-width:150px;padding:20px 24px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat .n{font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;font-variant-numeric:tabular-nums}
+.stat .l{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--mut);text-transform:uppercase;margin-top:6px}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tier{border:1px solid var(--line);padding:26px}
+.tier.hot{border-color:var(--acc)}
+.tier .tname{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.tier.hot .tname{color:var(--acc)}
+.tier .price{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;margin-bottom:12px}
+.tier .price span{font-size:12px;color:var(--mut);font-weight:400}
+.tier p{font-size:13.5px;color:var(--mut)}
+footer{padding:26px 0 70px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:64px;border-top:1px solid var(--line)}
+footer,footer a,footer span{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.05em;color:var(--mut)}
+@media (max-width:720px){.steps,.tiers,.lens,.split{grid-template-columns:1fr}}
+</style>
+
+<div class="wrap">
+  <nav>
+    <a class="wordmark" href="/">DEFINITE<span class="dot">.</span></a>
+    <div class="links"><a href="/">The record</a><a href="/ledger">Ledger</a><a href="/digest-001">The weekly</a></div>
+  </nav>
+
+  <div class="hero">
+    <p class="kick">The Definite Daemon — follow any future you have a stake in</p>
+    <h1>A daemon watches the future<span class="cursor"></span></h1>
+    <p class="sub">The robots coming for your industry. The AI capex cycle. Your market, your own company&rsquo;s plan — and next: the treatment moving through trials, the energy cost curve. Every future that matters to you is a set of claims about what happens next — we break them into branches and signposts, and a machine checks them against reality every day. <b>Not what people say about the future — what the future actually did.</b></p>
+    <div class="capture" style="max-width:340px"><a href="https://villevesterinen.com" style="flex:1;background:var(--acc);color:var(--bg);font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:16px 26px;text-align:center">Get the weekly — free</a></div>
+    <p class="smallnote">One email a week · No takes without receipts · Unsubscribe anytime</p>
+  </div>
+
+  <p class="sechead">From this week&rsquo;s report — <b>3 of 17 signposts moved</b></p>
+  <div class="sample">
+    <span class="tag">Signal № 001-1 · Musk, 2026 — 100M robots by 2031</span>
+    <h3>The robot ramp is real — and still two orders of magnitude short</h3>
+    <p>Figure is building one humanoid per hour. Unitree targets 20,000 units this year. Tesla deployed 1,000+ Optimus into its own factories — and is already behind its own schedule. <b>Branch &ldquo;right but late&rdquo; strengthens to 50%.</b></p>
+    <div class="lens">
+      <div><span class="l">If you build</span><p>The picks-and-shovels window — actuators, hands, fleet ops — is open now, ahead of the platform war.</p></div>
+      <div><span class="l">If you invest</span><p>The run-rate race is measurable quarterly. Underwrite the suppliers, not the humanoid brands.</p></div>
+      <div><span class="l">If you operate</span><p>The first 1,000-unit non-automotive deployment is your pilot signal. It hasn&rsquo;t happened yet.</p></div>
+    </div>
+  </div>
+
+  <p class="sechead">How it works</p>
+  <div class="steps">
+    <div class="step"><span class="n">01</span><h3>Claims get filed</h3><p>The frontier&rsquo;s biggest claims about the future — from Musk and Jensen to the founders and investors on our podcast — dated, sourced, on the record.</p></div>
+    <div class="step"><span class="n">02</span><h3>Futures get branched</h3><p>Each claim becomes a map: the ways it can unfold, the probabilities, and the signposts — real-world events that reveal which branch we&rsquo;re on.</p></div>
+    <div class="step"><span class="n">03</span><h3>The daemon watches</h3><p>A machine checks every signpost against the news, daily. When the future moves, you know — with what it means for your seat.</p></div>
+  </div>
+  <div class="sample" style="margin-top:16px;max-width:none">
+    <span class="tag">04 · The loop</span>
+    <h3>Reality grades the daemon, too</h3>
+    <p>Every branch probability we publish is dated and kept. When claims resolve, the outcome feeds back: resolved claims become the base rates that sharpen the next tree, and the daemon&rsquo;s own calls build a track record — <b>scored in public, like everyone else&rsquo;s.</b> We don&rsquo;t ask you to trust the machine. We show you its ledger.</p>
+  </div>
+
+  <p class="sechead">Futures people follow</p>
+  <div class="steps" style="grid-template-columns:repeat(3,1fr)">
+    <div class="step"><span class="n">TECHNOLOGY · ON WATCH</span><h3>Will the robots actually come?</h3><p>Musk says 100M humanoids by 2031. The daemon watches production run rates, unit costs, and real deployments — and tells you which branch is winning.</p></div>
+    <div class="step"><span class="n">MARKETS · ON WATCH</span><h3>Boom, bust, or bullwhip?</h3><p>The AI-capex cycle, filed as branches: vacancy rates, HBM inventories, power prices. Know which regime the data says you&rsquo;re in — before the narrative does.</p></div>
+    <div class="step"><span class="n">POLICY · ON WATCH</span><h3>When does the regulation actually bite?</h3><p>AI Act enforcement, Chips Act money, startup reform. The gap between announcement and reality is where plans die — the daemon watches the gap.</p></div>
+    <div class="step"><span class="n">MEDICINE · NEXT</span><h3>Follow the race between a disease and the science</h3><p>Trials, phase readouts, approvals, access — what moved this month for the condition you care about. Launching with clinical partners; information, never medical advice.</p></div>
+    <div class="step"><span class="n">YOUR INDUSTRY · NEXT</span><h3>Is AI coming for your profession?</h3><p>Claims about automation land weekly. The daemon will track the signposts for your field — real deployments, not demos — so you reskill on evidence, not panic.</p></div>
+    <div class="step"><span class="n">ENERGY · NEXT</span><h3>When does the cost curve cross?</h3><p>Fusion timelines, battery prices, grid buildout. The signposts that decide whether the energy claims of the decade arrive on schedule.</p></div>
+  </div>
+
+  <p class="sechead">Point it at your own future</p>
+  <div class="split">
+    <div class="buyer">
+      <span class="bfor">For founders</span>
+      <div class="bt">Mission watch</div>
+      <p>Your company is a claim about the future. The daemon breaks it into its real dependencies — <b>the bottlenecks that decide whether your world arrives</b> — and then stands watch on every one of them.</p>
+      <ul>
+        <li>Your mission decomposed: what has to be true, in order, for your plan to work</li>
+        <li>Base rates attached: how plans shaped like yours have historically resolved</li>
+        <li>Standing watch: a ping when reality moves for or against a bottleneck — a competitor&rsquo;s fab, a cost curve, a regulation</li>
+      </ul>
+      <p style="margin-top:14px">Not a report. An early-warning system for your own company.</p>
+    </div>
+    <div class="buyer">
+      <span class="bfor">For investors &amp; strategy teams</span>
+      <div class="bt">The scaffold</div>
+      <p>Drop a company URL. Get the diligence scaffold in minutes: <b>the claim the company is implicitly making, its dependency tree, and what the public record says about each assumption.</b></p>
+      <ul>
+        <li>Who else has filed claims on the same future — allies, rivals, contradictions</li>
+        <li>Base rates for this shape of bet, from the scored record</li>
+        <li>The signposts your diligence should actually check</li>
+      </ul>
+      <p class="warn">No success oracle. Dependency maps, not verdicts — private to you.</p>
+    </div>
+  </div>
+
+  <p class="sechead">On watch right now</p>
+  <div class="stats">
+    <div class="stat"><div class="n">5</div><div class="l">Claims filed</div></div>
+    <div class="stat"><div class="n">17</div><div class="l">Signposts watched</div></div>
+    <div class="stat"><div class="n">16</div><div class="l">Branches mapped</div></div>
+    <div class="stat"><div class="n">2040s</div><div class="l">Furthest horizon</div></div>
+  </div>
+
+  <p class="sechead">Three ways in</p>
+  <div class="tiers">
+    <div class="tier hot"><div class="tname">The weekly</div><div class="price">Free</div><p>What moved in the future this week — every fired signpost, the so-what for your seat. For anyone.</p></div>
+    <div class="tier"><div class="tname">Mission watch</div><div class="price">&euro;79 <span>/ month</span></div><p>The daemon on your own company: dependencies mapped, watched, and reported. For founders.</p></div>
+    <div class="tier"><div class="tname">The desk</div><div class="price">Annual <span>/ teams</span></div><p>Quarterly branch briefings, monitored tripwires, scaffolds on demand, claims your team nominates. For funds and strategy teams.</p></div>
+  </div>
+
+  <footer>
+    <span>DEFINITE — a project by Ville Vesterinen, co-founder of Slush</span>
+    <span><a href="/">THE RECORD</a> / <a href="/ledger">LEDGER</a> / <a href="https://villevesterinen.com">NEWSLETTER</a></span>
+  </footer>
+</div>
+
+</html>
