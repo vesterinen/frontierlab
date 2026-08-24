@@ -103,3 +103,18 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
   .spec{grid-template-columns:1fr;gap:8px}
   .method{grid-template-columns:1fr}
 }
+
+.branch{display:grid;grid-template-columns:210px 1fr 60px;gap:18px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line);max-width:920px}
+.branch .bl{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em;color:var(--ink);text-transform:uppercase}
+.branch .bl small{display:block;font-family:Archivo,system-ui,sans-serif;font-size:12px;color:var(--mut);text-transform:none;letter-spacing:0;margin-top:3px}
+.branch .bar{height:10px;background:var(--panel);border:1px solid var(--line);position:relative}
+.branch .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--acc)}
+.branch.dim .bar i{background:var(--mut)}
+.branch .bp{font-family:'IBM Plex Mono',monospace;font-size:12.5px;text-align:right;font-variant-numeric:tabular-nums}
+.treenote{font-size:14.5px;color:var(--mut);max-width:44em;margin-top:16px}
+.treenote b{color:var(--ink);font-weight:500}
+.foreword{border:1px solid var(--line);background:var(--panel);padding:26px 28px;margin-bottom:40px;position:relative}
+.foreword::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--acc)}
+.foreword p{font-size:16px;line-height:1.7;color:var(--ink);margin:0 0 10px;max-width:44em}
+.foreword p:last-child{margin-bottom:0}
+.foreword .lab{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;color:var(--acc);text-transform:uppercase;display:block;margin-bottom:12px}
