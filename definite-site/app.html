@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The App — Definite</title>
+<meta name="description" content="Paste a claim, a mission, or a company URL. The daemon computes the decision tree.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<style>
+.inputbox{border:1px solid var(--acc);background:var(--panel);padding:28px;max-width:760px;margin-top:8px}
+.inputbox label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;color:var(--acc);text-transform:uppercase;display:block;margin-bottom:10px}
+.inputbox textarea{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--ink);font-family:Archivo,system-ui,sans-serif;font-size:15.5px;padding:14px;min-height:90px;resize:vertical;outline:none;line-height:1.6}
+.inputbox textarea:focus{border-color:var(--acc)}
+.inputrow{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
+.inputrow input{flex:1;min-width:180px;background:var(--bg);border:1px solid var(--line);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:13px;padding:13px 14px;outline:none}
+.inputrow input:focus{border-color:var(--acc)}
+.inputrow button{background:var(--acc);color:var(--bg);border:0;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:0 26px;cursor:pointer}
+.inputrow button:disabled{opacity:.5;cursor:wait}
+.hint{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.05em;color:var(--mut);margin-top:12px;text-transform:uppercase}
+.status{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;margin:26px 0 0;color:var(--acc);text-transform:uppercase;display:none}
+.status .cursor{display:inline-block;width:.55em;height:1em;background:var(--acc);vertical-align:-.15em;margin-left:.2em;animation:blink 1.1s steps(1) infinite}
+.status.err{color:#E8492A}
+#result{display:none;margin-top:36px;max-width:920px}
+.disclaimer{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.05em;color:var(--mut);text-transform:uppercase;border-top:1px solid var(--line);margin-top:30px;padding-top:14px;line-height:1.9;max-width:920px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="wordmark" href="/">DEFINITE<span class="dot">.</span></a><div class="links"><a href="/daemon">The daemon</a><a href="/musk-2026#tree">Example tree</a><a href="/ledger">Ledger</a></div></nav>
+<article style="max-width:none">
+<div class="spechead"><span class="no">The app / Private beta</span><span class="status" style="display:inline;color:var(--acc);font-family:'IBM Plex Mono',monospace;font-size:11px">● ACCESS CODE REQUIRED</span></div>
+<h1>Paste a claim.<br>Get the tree.</h1>
+<p class="meta" style="margin-bottom:34px">A claim about the future / your company&rsquo;s mission / a company URL — the daemon computes the branches, probabilities, signposts, and kill condition.</p>
+
+<div class="inputbox">
+<label>Your input</label>
+<textarea id="input" placeholder="e.g. &quot;100 million humanoid robots by 2031&quot; — or your startup's mission — or https://yourcompany.com"></textarea>
+<div class="inputrow">
+<input id="code" type="password" placeholder="ACCESS CODE" autocomplete="off">
+<button id="go" onclick="compute()">Compute the tree</button>
+</div>
+<p class="hint">Private beta · One claim at a time · Trees take ~30 seconds</p>
+</div>
+
+<p class="status" id="status">The daemon is computing<span class="cursor"></span></p>
+
+<div id="result"></div>
+
+<p class="disclaimer">Machine-drafted analysis of a claim&rsquo;s possible worlds — not advice, not a verdict on any company. The full product adds base rates from the scored record, standing monitoring, and human review. Questions → the <a href="/daemon" class="yl" style="text-transform:none">daemon page</a>.</p>
+</article>
+<footer><a class="backlink" href="/daemon">← The daemon</a><span>DEFINITE · APP</span></footer>
+</div>
+<script>
+async function compute(){
+  var input=document.getElementById('input').value.trim();
+  var code=document.getElementById('code').value.trim();
+  var st=document.getElementById('status'), btn=document.getElementById('go'), out=document.getElementById('result');
+  out.style.display='none'; out.innerHTML='';
+  st.classList.remove('err'); st.innerHTML='The daemon is computing<span class="cursor"></span>'; st.style.display='block';
+  btn.disabled=true;
+  try{
+    var r=await fetch('/api/tree',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({input:input,code:code})});
+    var d=await r.json();
+    if(!r.ok){ throw new Error(d.error||('Error '+r.status)); }
+    var t=d.tree||{};
+    var h='';
+    h+='<div class="claimbox"><p>'+esc(t.claim||input)+'</p></div>';
+    h+='<h2 class="lbl" style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin:34px 0 6px;color:var(--acc)">The tree</h2>';
+    (t.branches||[]).forEach(function(b){
+      var p=Math.round((b.p||0)*100);
+      h+='<div class="branch'+(p<=5?' dim':'')+'"><span class="bl">'+esc(b.id||'')+' · '+esc(b.name||'')+'<small>'+esc(b.desc||'')+'</small></span><span class="bar"><i style="width:'+p+'%"></i></span><span class="bp">'+p+'%</span></div>';
+    });
+    if((t.signposts||[]).length){
+      h+='<h2 class="lbl" style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin:34px 0 10px;color:var(--acc)">Signposts — what to watch</h2><ul style="list-style:none;padding:0;max-width:56em">';
+      t.signposts.forEach(function(s){
+        h+='<li style="margin:0 0 12px;padding-left:24px;position:relative;font-size:15px;line-height:1.6"><span style="position:absolute;left:0;top:.62em;width:11px;height:1px;background:var(--acc)"></span>'+esc(s.watch||'')+' <span style="font-family:\'IBM Plex Mono\',monospace;font-size:10.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.05em">'+esc(s.discriminates||'')+(s.by?' · by '+esc(s.by):'')+'</span></li>';
+      });
+      h+='</ul>';
+    }
+    if(t.kill){ h+='<h2 class="lbl" style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin:34px 0 8px;color:#E8492A">Kill condition</h2><p style="font-size:15.5px;max-width:44em">'+esc(t.kill)+'</p>'; }
+    if(t.caveat){ h+='<p class="treenote" style="margin-top:22px"><b>Caveat:</b> '+esc(t.caveat)+'</p>'; }
+    h+='<p class="treenote" style="margin-top:26px"><b>Want this watched?</b> Mission Watch turns a one-shot tree into a standing watch: base rates attached, signposts monitored, a ping when reality moves. <a href="/daemon" class="yl">The daemon</a>.</p>';
+    out.innerHTML=h; out.style.display='block'; st.style.display='none';
+  }catch(e){
+    st.classList.add('err'); st.textContent=e.message||'Something failed — try again.';
+  }finally{ btn.disabled=false; }
+}
+function esc(s){return (s+'').replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+document.getElementById('input').addEventListener('keydown',function(e){if((e.metaKey||e.ctrlKey)&&e.key==='Enter'){compute();}});
+</script>
+</body>
+</html>
